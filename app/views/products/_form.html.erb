@@ -1,0 +1,23 @@
+<%= form_with model: product, local: true, html: { multipart: true, class: 'mt-4' } do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: 'form-label' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, class: 'form-label' %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :image, class: 'form-label' %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <%= render 'dynamic_fields', f: f, name: 'Technical Data', association: :technical_data %>
+  <%= render 'dynamic_fields', f: f, name: 'Ordering Information', association: :ordering_informations %>
+  <%= render 'dynamic_fields', f: f, name: 'Connection Data', association: :connection_data %>
+  <%= render 'dynamic_fields', f: f, name: 'Dimensions', association: :dimensions %>
+
+  <%= f.submit class: "btn btn-primary mt-3" %>
+<% end %>

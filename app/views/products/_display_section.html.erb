@@ -1,0 +1,17 @@
+<h4><%= title %></h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data.each do |entry| %>
+      <tr>
+        <td><%= entry.key %></td>
+        <td><%= entry.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

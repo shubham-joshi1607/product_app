@@ -1,0 +1,22 @@
+<fieldset class="border p-3 mt-4">
+  <legend class="w-auto"><%= name %></legend>
+
+  <% prototype = capture do %>
+    <%= f.fields_for association, association.to_s.classify.constantize.new, child_index: "NEW_RECORD" do |assoc_form| %>
+      <%= render 'field_group', f: assoc_form %>
+    <% end %>
+  <% end %>
+
+  <div 
+    data-wrapper="<%= association %>" 
+    data-prototype="<%= CGI.escapeHTML(prototype).html_safe %>">
+
+    <%= f.fields_for association do |assoc_form| %>
+      <%= render 'field_group', f: assoc_form %>
+    <% end %>
+  </div>
+
+  <button type="button" class="btn btn-outline-success btn-sm mt-2" data-add="<%= association %>">
+    Add <%= name %>
+  </button>
+</fieldset>

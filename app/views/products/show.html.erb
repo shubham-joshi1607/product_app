@@ -1,0 +1,11 @@
+<h2><%= @product.name %></h2>
+<p><%= @product.description %></p>
+<%= image_tag @product.image, class: 'img-fluid', width: 300 if @product.image.attached? %>
+
+<hr>
+<%= render 'display_section', title: "Technical Data", data: @product.technical_data %>
+<%= render 'display_section', title: "Ordering Information", data: @product.ordering_informations %>
+<%= render 'display_section', title: "Connection Data", data: @product.connection_data %>
+<%= render 'display_section', title: "Dimensions", data: @product.dimensions %>
+
+<%= link_to 'Back', products_path, class: 'btn btn-secondary mt-3' %>
